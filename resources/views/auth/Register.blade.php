@@ -1,5 +1,5 @@
 
-@extends('Layout.app')
+@extends('layouts.app')
 
 @section('titulo')
 Registro

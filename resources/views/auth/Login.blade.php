@@ -1,4 +1,4 @@
-@extends('Layout.app')
+@extends('layouts.app')
 <script defer src="https://app.embed.im/snow.js"></script>
 @section('titulo')
 Login
