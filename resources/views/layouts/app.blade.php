@@ -20,6 +20,8 @@
             </nav>
     </header>
     <main class="mb-10">
+        <h2 class="text-3xl font-bold text-center">@yield('titulo2')</h2>
+        
         @yield('contenido')
     </main>
     <footer class="text-center p-5 text-gray-500 font-bold uppercase mt-10 ">

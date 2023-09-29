@@ -6,7 +6,6 @@
 @section('titulo')
     Inicio
 @endsection
-
 <style>
     .info {
         background-image: url('{{ asset('img/Peru.jpg') }}');

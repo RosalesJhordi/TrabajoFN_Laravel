@@ -5,7 +5,10 @@ Login
 @endsection
 
 @section('titulo2')
-   Inicia sesion en City Tours 
+<span class="p-1">
+    Inicia sesion en City Tours 
+</span>
+   
 @endsection
 <style>
     body{

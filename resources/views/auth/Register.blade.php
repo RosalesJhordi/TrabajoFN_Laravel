@@ -6,7 +6,9 @@ Registro
 @endsection
 
 @section('titulo2')
-Registrate en City Tours
+<span class="p-1">
+   Registrate en City Tours 
+</span>
 @endsection
 
 <style>
