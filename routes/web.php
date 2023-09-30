@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,8 +33,9 @@ Route::get('/registro',[RegisterController::class,'index'])->name('registro');
 Route::post('/registro',[RegisterController::class,'store']);
 
 //routes login
-Route::get('/login',[LoginController::class,'index'])->name('login');
-Route::post('/login',[LoginController::class,'store']);
+Route::get('login',[LoginController::class,'index'])->name('login');
+Route::post('login',[LoginController::class,'store']);
 
 //redirecionar-
-Route::get('/{user:name}',[LoginController::class,'index'])->name('post.index');
+
+Route::get('/{user:name}',[PostController::class,'index'])->name('post.index');

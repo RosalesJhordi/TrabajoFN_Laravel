@@ -21,7 +21,6 @@ class LoginController extends Controller
         $name = "Jhordi";
         
         if ($request->email == $email && $request->password == $pass) {
-            
             return redirect()->route('post.index', auth()->user()->$name);
         } else {
             if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {

@@ -86,6 +86,7 @@ Registro
     <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
         <form action="{{ route('registro') }}" method="POST" novalidate>
             @csrf
+            
             <div>
                 <label for="name" class="mb-2 block uppercase text-black font-bold">
                     Nombre
@@ -100,7 +101,7 @@ Registro
                 <label for="apellidos" class="mb-2 block uppercase text-black font-bold">
                     Apellidos
                 </label>
-                <input id="apellidos" name="apellidos" type="text" placeholder="Tu Apellidos" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('name') border-red-500 @enderror" value={{old('username')}}>
+                <input id="apellidos" name="apellidos" type="text" placeholder="Tu Apellidos" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('apellidos') border-red-500 @enderror" value={{old('apellidos')}}>
                 {{-- si el campo esta vacio --}}
                 @error('apellidos')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
@@ -110,7 +111,7 @@ Registro
                 <label for="telefono" class="mb-2 block uppercase text-black font-bold">
                     Telefono
                 </label>
-                <input id="telefono" name="telefono" type="text" placeholder="Tu Telefono" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('name') border-red-500 @enderror" value={{old('username')}}>
+                <input id="telefono" name="telefono" type="text" placeholder="Tu Telefono" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('telefono') border-red-500 @enderror" value={{old('telefono')}}>
                 {{-- si el campo esta vacio --}}
                 @error('telefono')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
@@ -120,7 +121,7 @@ Registro
                 <label for="email" class="mb-2 block uppercase text-black font-bold">
                     Email
                 </label>
-                <input id="email" name="email" type="email" placeholder="Tu Email" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('name') border-red-500 @enderror" value={{old('email')}}>
+                <input id="email" name="email" type="email" placeholder="Tu Email" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('email') border-red-500 @enderror" value={{old('email')}}>
                 {{-- si el campo esta vacio --}}
                 @error('email')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
@@ -130,7 +131,7 @@ Registro
                 <label for="password" class="mb-2 block uppercase text-black font-bold">
                     Password
                 </label>
-                <input id="password" name="password" type="password" placeholder="Tu Password" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('name') border-red-500 @enderror">
+                <input id="password" name="password" type="password" placeholder="Tu Password" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('password') border-red-500 @enderror">
                 {{-- si el campo esta vacio --}}
                 @error('password')
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
