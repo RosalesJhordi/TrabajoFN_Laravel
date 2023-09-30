@@ -3,6 +3,13 @@ body{
     background-color: rgb(255, 255, 255);
     height: auto;
 }
+.full-container{
+    width: 97%;
+    height: 100vh;
+    background: white;
+    display: flex;
+    margin-left: 3%;
+}
 .aside{
     position: fixed;
     width: 3%;
