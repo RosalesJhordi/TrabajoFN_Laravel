@@ -15,7 +15,7 @@
             <p class="font-bold text-5xl text-center mt-10" id="alias">ct</p>
             <span class="text font-bold text-4xl text-center mt-10" id="titulo">CityTours</span>
         </div>
-        <div class="item">
+        <div class="item active">
             <div class="text-2xl w-full flex justify-center p-4 mt-5 conte">
                 <i class="fa-solid fa-house"></i>
                 <span class="text text-center">Inicio</span>
@@ -49,5 +49,19 @@
     <div class="full-container flex flex-col">
         @yield('container')
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navItems = document.querySelectorAll('.item');
+    
+            navItems.forEach(item => {
+                item.addEventListener("click", function () {
+                    // Supprimez la classe "active" de tous les éléments de la barre latérale
+                    navItems.forEach(item => item.classList.remove("active"));
+                    // Ajoutez la classe "active" à l'élément cliqué
+                    this.classList.add("active");
+                });
+            });
+        });
+    </script>    
 </body>
 </html>

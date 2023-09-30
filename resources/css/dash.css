@@ -42,10 +42,10 @@ body{
 .tt{
     margin-bottom: 200px;
 }
-.conte:hover{
+.item:hover,
+.item.active{
     background-color: orangered;
     border-radius: 0px 200px 200px 0px;
--moz-border-radius: 0px 200px 200px 0px;
--webkit-border-radius: 0px 200px 200px 0px;
-border: 0px solid #000000;
+    -moz-border-radius: 0px 200px 200px 0px;
+    -webkit-border-radius: 0px 200px 200px 0px;
 }

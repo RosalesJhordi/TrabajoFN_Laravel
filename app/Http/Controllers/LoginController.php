@@ -16,18 +16,11 @@ class LoginController extends Controller
             'email' => 'required | email',
             'password' => 'required'
         ]);
-        $email = "Admin@gmail.com";
-        $pass = "201104";
-        $name = "Jhordi";
-        
-        if ($request->email == $email && $request->password == $pass) {
-            return redirect()->route('post.index', auth()->user()->$name);
-        } else {
-            if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
+
+        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
                 
             return back()->with('mensaje','Credenciales Incorrectas');
-            } 
-            return redirect()->route('post.index', auth()->user()->name);
-        }
+        } 
+        return redirect()->route('post.index', auth()->user()->name);
     }
 }
