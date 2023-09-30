@@ -43,13 +43,14 @@
             <a href="{{ route('logout') }}" class="text-2xl mr-5"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
         {{-- opciones de admin --}}
+        <a href="{{ route('admin') }}">
         <div class="fixed bottom-0 right-0 m-5 bg-gray-200 w-1/5 h-1/4 cursor-pointer box-editar">
             <div class=" w-full h-40 bg-pink-500 flex justify-center items-center">
                 <i class="fa-solid fa-plus text-5xl p-2 rounded-full w-16 h-16 text-center bg-white"></i>
             </div>
             <h3 class="font-bold ml-5 text-2xl p-1">Editar</h3>
             <p class="ml-5 font-semibold p-1">Puedes editar pasajes, horario, etc</p>
-        </div>
+        </div></a>
           
         <div class="w-full bg-gray-100 h-full">
             <div class="m-auto anuncios flex items-end">

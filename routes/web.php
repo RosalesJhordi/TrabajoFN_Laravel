@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostController;
@@ -40,3 +41,6 @@ Route::post('login',[LoginController::class,'store']);
 //redirecionar-
 
 Route::get('/{user:name}',[PostController::class,'index'])->name('post.index');
+
+//ruta admin 
+Route::get('/admin',[AdminController::class,'index'])->name('admin');
