@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('ubicacion');
             $table->string('clima');
-            $table->string('idioma');
-            $table->string('moneda');
             $table->string('costumbres');
             $table->dateTime('horario_salida');
             $table->string('imagen');

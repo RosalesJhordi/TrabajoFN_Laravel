@@ -15,7 +15,7 @@
             height: 100vh;
         }
         aside{
-            width: 20%;
+            width: 25%;
             height: 100%;
             float: right;
             box-shadow: 0px 10px 20px 1px ;
