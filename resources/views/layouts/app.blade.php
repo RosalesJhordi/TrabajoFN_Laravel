@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CityTours - @yield('titulo')</title>
     @vite('resources/css/app.css')
+    {{-- @stack('styles') --}}
 </head>
 <body class="m-0">
     <header class="p-5 border-b bg-white shadow flex justify-between">

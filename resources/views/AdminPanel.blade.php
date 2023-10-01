@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Panel Admin - @yield('titulo')</title>
-    <script src="https://kit.fontawesome.com/a22afade38.js" crossorigin="anonymous"></script>
+    <title>Panel Admin</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @vite('resources/css/app.css')
     <style>
         ::-webkit-scrollbar{
             width: 0;
         }
         main{
+            width: 100%;
             height: 100vh;
         }
-        aside{
-            width: 25%;
-            height: 100%;
-            float: right;
-            box-shadow: 0px 10px 20px 1px ;
+        .dropzone{
+            height: 20vh;
+            background: red;
         }
     </style>
 </head>
@@ -31,15 +30,13 @@
             <a href="#" class="p-3 rounded-lg mr-2 font-bold hover:bg-orange-500 hover:text-white">Editar</a>
             <a href="#" class="p-3 rounded-lg mr-2 font-bold hover:bg-red-500 hover:text-white">Eliminar</a>
             <a href="#" class="p-3 rounded-lg mr-2 font-bold hover:bg-green-500 hover:text-white">Actualizar</a>
-            <a href="{{ route('agregar') }}" class="p-3 rounded-lg mr-2 font-bold hover:bg-blue-500 hover:text-white">Agregar</a> 
-            <a href="{{route('logout')}}" class="text-2xl mr-5"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            <a href="{{route('agregar')}}" class="p-3 rounded-lg mr-2 font-bold hover:bg-blue-500 hover:text-white">Agregar</button> 
+            <a href="{{route('logout')}}" id="mostrarFormulario" class="text-2xl mr-5"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </nav>
     
     </header>
     <main>
-        {{-- <div class="flex">
-
-            
+        <div class="flex">
             @foreach ($destinos as $lugar)
             <div class="bg-gray-400 w-1/5 m-2">
                 <p>{{ $lugar->nombre }}</p>
@@ -50,10 +47,7 @@
             </div>
                
             @endforeach
-         </div> --}}
-        <aside>
-            @yield('contenido')
-        </aside>
+         </div>
     </main>
 </body>
 </html>

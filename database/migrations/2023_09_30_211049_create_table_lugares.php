@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('clima');
             $table->string('costumbres');
             $table->dateTime('horario_salida');
+            $table->double('costo');
+            $table->double('descuento');
             $table->timestamps();
         });
     }
