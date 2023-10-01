@@ -14,10 +14,7 @@ class Lugares extends Model
         'nombre',
         'ubicacion',
         'clima',
-        'idioma',
-        'moneda',
         'costumbres',
         'horario_salida',
-        'imagen',
     ];
 }

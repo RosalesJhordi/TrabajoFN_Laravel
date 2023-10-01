@@ -4,8 +4,12 @@
 agregar
 @endsection
 @section('contenido')
-    <form action="" class="w-96 m-auto flex flex-col mt-20">
+    <form action="{{route('agregar')}}" method="POST" class="w-96 m-auto flex flex-col mt-20">
         @csrf
+        @if(session('mensaje'))
+                <p class="bg-green-500 text-white my-2 font-bold rounded-lg text-sm p-2 text-center">{{ session('mensaje') }}</p>
+                @endif
+            <div>
         <div>
             <label for="nombre" class="mb-2 block uppercase text-black font-bold">
                 Nombre del lugar
@@ -39,12 +43,12 @@ agregar
             @enderror
         </div>
         <div class="mt-5">
-            <label for="costrumbres" class="mb-2 block uppercase text-black font-bold">
+            <label for="costumbres" class="mb-2 block uppercase text-black font-bold">
                 Costumbres
             </label>
-            <textarea id="costrumbres" name="costrumbres" type="text" placeholder="Costrumbres del lugar" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('costrumbres') border-red-500 @enderror" value={{ old('costrumbres') }}>
+            <textarea id="costumbres" name="costumbres" type="text" placeholder="Costrumbres del lugar" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('costumbres') border-red-500 @enderror" value={{ old('costumbres') }}>
             </textarea>
-            @error('costrumbres')
+            @error('costumbres')
                 <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
             @enderror
         </div>

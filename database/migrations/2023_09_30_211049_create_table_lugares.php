@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('clima');
             $table->string('costumbres');
             $table->dateTime('horario_salida');
-            $table->string('imagen');
             $table->timestamps();
         });
     }

@@ -37,10 +37,20 @@
     
     </header>
     <main>
-        {{-- @foreach ($destinos as $lugar)
-            <p>{{ $lugar->nombre }}</p>
-            <!-- Mostrar otros atributos del lugar aquí -->
-        @endforeach --}}
+        {{-- <div class="flex">
+
+            
+            @foreach ($destinos as $lugar)
+            <div class="bg-gray-400 w-1/5 m-2">
+                <p>{{ $lugar->nombre }}</p>
+                <p>{{ $lugar->ubicacion }}</p>
+                <p>{{ $lugar->clima }}</p>
+                <p>{{ $lugar->costumbres }}</p>
+                <p>{{ $lugar->horario_salida }}</p>
+            </div>
+               
+            @endforeach
+         </div> --}}
         <aside>
             @yield('contenido')
         </aside>

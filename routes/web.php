@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/agregar',[AgregarController::class,'index'])->name('agregar');
+Route::post('/agregar',[AgregarController::class,'store']);
 
 Route::get('/', function () { return view('Inicio'); });
 

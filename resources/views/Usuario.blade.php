@@ -59,7 +59,22 @@
                     <img src="{{ asset('img/image.png')}}" class="w-48 mt-10">
                 </div>
             </div>
+            <div class="flex">
+
+            
+                @foreach ($destinos as $lugar)
+                <div class="bg-gray-400 w-1/5 m-2">
+                    <p>{{ $lugar->nombre }}</p>
+                    <p>{{ $lugar->ubicacion }}</p>
+                    <p>{{ $lugar->clima }}</p>
+                    <p>{{ $lugar->costumbres }}</p>
+                    <p>{{ $lugar->horario_salida }}</p>
+                </div>
+                   
+                @endforeach
+             </div>
         </div>
+
     {{-- usuario normal --}}
     @elseif (auth()->user())
         <div class=" w-full h-10 flex justify-end items-end mt-2 shadow-md pb-2">
@@ -75,6 +90,20 @@
                     <img src="{{ asset('img/image.png')}}" class="w-48 mt-10">
                 </div>
             </div>
+            <div class="flex">
+
+            
+            @foreach ($destinos as $lugar)
+            <div class="bg-gray-400 w-1/5 m-2">
+                <p>{{ $lugar->nombre }}</p>
+                <p>{{ $lugar->ubicacion }}</p>
+                <p>{{ $lugar->clima }}</p>
+                <p>{{ $lugar->costumbres }}</p>
+                <p>{{ $lugar->horario_salida }}</p>
+            </div>
+               
+            @endforeach
+         </div>
         </div>
     @endif
     
