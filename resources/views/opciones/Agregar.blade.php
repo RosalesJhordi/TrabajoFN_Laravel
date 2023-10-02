@@ -25,7 +25,9 @@
     </div>
     <form action="{{route('agregar')}}" method="POST" class="datos-form shadow-2xl rounded-lg m-auto flex flex-col p-5 w-1/2">
         @csrf
-        <div>
+        @if(session('mensaje'))
+            <p class="bg-green-500 text-white my-2 font-bold rounded-lg text-sm p-2 text-center">{{ session('mensaje') }}</p>
+        @endif
         <div>
             <label for="nombre" class="mb-2 block uppercase text-black font-bold  text-start">
                 Nombre del lugar
@@ -77,11 +79,11 @@
             @enderror
         </div>
         <div class="mt-5">
-            <label for="pasaje" class="mb-2 block uppercase text-black font-bold text-start">
+            <label for="costo" class="mb-2 block uppercase text-black font-bold text-start">
                 costo de pasaje
             </label>
-            <input id="pasaje" name="pasaje" type="number" placeholder="costo de pasaje" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('pasaje') border-red-500 @enderror" value={{ old('pasaje') }}>
-            @error('pasaje')
+            <input id="costo" name="costo" type="number" placeholder="costo de pasaje" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('costo') border-red-500 @enderror" value={{ old('costo') }}>
+            @error('costo')
                 <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
             @enderror
         </div>
@@ -94,7 +96,17 @@
                 <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
             @enderror
         </div>
-        <input type="submit" value="Agregar" class="bg-blue-500 mt-10 p-3 rounded-lg font-bold cursor-pointer text-white w-1/2">
+        <div class="mt-5">
+            <input type="hidden" name="imagen" value="{{ old('imagen')}}">
+        </div>
+        @error('imagen')
+            <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
+        @enderror
+
+        <div class="flex justify-around">
+            <input type="submit" value="Agregar" class="bg-blue-500 mt-10 p-3 rounded-lg font-bold cursor-pointer text-white w-1/3">
+            <a href="{{route('admin')}}" class="bg-red-500 mt-10 p-3 rounded-lg font-bold cursor-pointer text-center text-white w-1/3">Atras</a>
+        </div>
     </form>
 </body>
 </html>

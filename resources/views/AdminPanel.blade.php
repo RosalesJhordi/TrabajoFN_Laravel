@@ -7,6 +7,7 @@
     <title>Panel Admin</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @vite('resources/css/app.css')
+    <script src="https://kit.fontawesome.com/a22afade38.js" crossorigin="anonymous"></script>
     <style>
         ::-webkit-scrollbar{
             width: 0;
@@ -38,7 +39,8 @@
     <main>
         <div class="flex">
             @foreach ($destinos as $lugar)
-            <div class="bg-gray-400 w-1/5 m-2">
+            <div class="rounded-xl p-2 shadow-lg shadow-black w-1/5 m-2">
+                <img src="{{ asset('Uploads') . '/' . $lugar->imagen }}" alt="Imagen del lugar">
                 <p>{{ $lugar->nombre }}</p>
                 <p>{{ $lugar->ubicacion }}</p>
                 <p>{{ $lugar->clima }}</p>

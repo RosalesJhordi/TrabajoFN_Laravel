@@ -17,7 +17,10 @@ class AgregarController extends Controller
             'ubicacion' => 'required',
             'clima' => 'required',
             'costumbres' => 'required',
-            'horario' => 'required'
+            'horario' => 'required',
+            'imagen' => 'required',
+            'costo' => 'required',
+            'descuento' => 'required'
         ]);
 
         Lugares::create([
@@ -25,7 +28,10 @@ class AgregarController extends Controller
             'ubicacion' => $request -> ubicacion,
             'clima' => $request -> clima,
             'costumbres' => $request -> costumbres,
-            'horario_salida' => $request -> horario,
+            'horario' => $request -> horario,
+            'imagen' => $request -> imagen,
+            'costo' => $request -> costo,
+            'descuento' => $request -> descuento
         ]);
 
         return back()->with('mensaje','Lugar Añadido con exito');

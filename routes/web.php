@@ -71,3 +71,5 @@ Route::post('/image',function(Request $request){
     return response()->json(['imagen'=>$nomImage]);
 
 })->name('image.store');
+
+Route::post('/imgs',[PostController::class,'store'])->name('imgs.store');

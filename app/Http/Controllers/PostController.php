@@ -21,6 +21,5 @@ class PostController extends Controller
             'user' => $user,
             'destinos' => $destinos
         ]);
-
     }
 }

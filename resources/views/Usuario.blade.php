@@ -18,14 +18,25 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        display: flex;
+        justify-content: end;
         background-image: url('{{ asset('img/machu-pichu.jpg') }}');
     }
     .shape{
         width: 40%;
         height: 100%;
         background: rgba(3, 41, 255, 0.712);
-        border-radius: 0% 80% 10% 0% / 0% 80% 10% 0%;
+        border-radius: 80% 0% 0% 10% / 80% 0% 10% 10%;
+        animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-bottom-right both;
     }
+    @keyframes circle-in-bottom-right {
+  from {
+    clip-path: circle(0%);
+  }
+  to {
+    clip-path: circle(150% at bottom right);
+  }
+}
     .box-editar{
         box-shadow: 0px 0px 10px 2px grey;
         border-radius: 10px
@@ -51,8 +62,16 @@
             <h3 class="font-bold ml-5 text-2xl p-1">Editar</h3>
             <p class="ml-5 font-semibold p-1">Puedes editar pasajes, horario, etc</p>
         </div></a>
-          
-        <div class="w-full bg-gray-100 h-full">
+    {{-- usuario normal --}}
+    @elseif (auth()->user())
+        <div class=" w-full h-10 flex justify-end items-end mt-2 shadow-md pb-2">
+            <h1 class="mr-5 text-lg font-bold">Hola: {{ $user->name}}</h1>
+            <img src="{{ asset('img/usuario.svg')}}" alt="Imagen usuario" class="w-8 mr-5 cursor-pointer" onclick="datos()"/>
+
+            <a href="{{ route('logout') }}" class="text-2xl mr-5"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        </div> 
+    @endif
+        <div class="w-full bg-gray-100 h-auto">
             <div class="m-auto anuncios flex items-end">
                 <div class="shape flex justify-center items-center flex-col text-center text-6xl">
                     <h1 class="font-bold text-white mt-40">Viaja desde <br> <span class="text-green-400">s/ 800</span></h1>
@@ -63,49 +82,19 @@
 
             
                 @foreach ($destinos as $lugar)
-                <div class="bg-gray-400 w-1/5 m-2">
+                <div class="rounded-xl p-2 shadow-lg shadow-black w-1/5 m-2">
+                    <img src="{{ asset('Uploads') . '/' . $lugar->imagen }}" alt="Imagen del lugar">
                     <p>{{ $lugar->nombre }}</p>
                     <p>{{ $lugar->ubicacion }}</p>
                     <p>{{ $lugar->clima }}</p>
                     <p>{{ $lugar->costumbres }}</p>
                     <p>{{ $lugar->horario_salida }}</p>
+                    <button class="bg-blue-500 p-2 text-white rounded text-center">Comprar pasaje</button>
                 </div>
-                   
                 @endforeach
-             </div>
-        </div>
-
-    {{-- usuario normal --}}
-    @elseif (auth()->user())
-        <div class=" w-full h-10 flex justify-end items-end mt-2 shadow-md pb-2">
-            <h1 class="mr-5 text-lg font-bold">Hola: {{ $user->name}}</h1>
-            <img src="{{ asset('img/usuario.svg')}}" alt="Imagen usuario" class="w-8 mr-5 cursor-pointer" onclick="datos()"/>
-
-            <a href="{{ route('logout') }}" class="text-2xl mr-5"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-        </div>
-        <div class="w-full bg-gray-100 h-full">
-            <div class="m-auto anuncios flex items-end">
-                <div class="shape flex justify-center items-center flex-col text-center text-6xl">
-                    <h1 class="font-bold text-white mt-40">Viaja desde <br> <span class="text-green-400">s/ 800</span></h1>
-                    <img src="{{ asset('img/image.png')}}" class="w-48 mt-10">
-                </div>
-            </div>
-            <div class="flex">
-
-            
-            @foreach ($destinos as $lugar)
-            <div class="bg-gray-400 w-1/5 m-2">
-                <p>{{ $lugar->nombre }}</p>
-                <p>{{ $lugar->ubicacion }}</p>
-                <p>{{ $lugar->clima }}</p>
-                <p>{{ $lugar->costumbres }}</p>
-                <p>{{ $lugar->horario_salida }}</p>
-            </div>
-               
-            @endforeach
          </div>
         </div>
-    @endif
+   
     
     <script>
         function datos(){
