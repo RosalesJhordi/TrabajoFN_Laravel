@@ -19,7 +19,7 @@
 </head>
 <body class="flex justify-between items-center mr-40 ml-40 mt-5 bg-gray-100">
     <div class="mt-5 w-1/2 mr-10">
-        <form action="{{route('imagen.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" class="mr-10 dropzone border-dashed border-2 w-full h-96 rounded flex flex-co justify-center items-center">
+        <form action="{{route('image.store')}}" method="POST" enctype="multipart/form-data" id="dropzone" class="mr-10 dropzone border-dashed border-2 w-full h-96 rounded flex flex-co justify-center items-center">
             @csrf
         </form>
     </div>

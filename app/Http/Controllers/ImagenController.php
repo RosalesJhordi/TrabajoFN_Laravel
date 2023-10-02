@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class ImagenController extends Controller
 {
+    //
     public function store(){
-        dd('desde img controler');
+        return "Desde el controlador de imagen";
     }
 }

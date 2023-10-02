@@ -1,15 +1,18 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AgregarController;
-use App\Http\Controllers\ImagenController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\OpcionesController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\RegisterController;
+use App\Models\Lugares;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Intervention\Image\Facades\Image;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ImagenController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\AgregarController;
+use App\Http\Controllers\OpcionesController;
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,12 +23,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::post('/imagenes',[ImagenController::class,'store'])->name('imagen.store');
 
 Route::get('/agregar',[AgregarController::class,'index'])->name('agregar');
 Route::post('/agregar',[AgregarController::class,'store']);
 
-Route::get('/', function () { return view('Inicio'); });
+Route::get('/', function () 
+{ 
+    $destinos = Lugares::all();
+
+    return view('Inicio',compact('destinos')); 
+});
 
 //logout
 Route::get('logout',[LogoutController::class,'index'])->name('logout');
@@ -50,3 +57,17 @@ Route::get('/admin',[AdminController::class,'index'])->name('admin');
 //opciones admin
 
 //iamgenes 
+Route::post('/image',function(Request $request){
+    
+    $imagen = $request->file('file');
+
+    $nomImage = Str::uuid() . "." . $imagen->extension();
+    $imgServe = Image::make($imagen);
+    $imgServe->fit(1000,1000);
+
+    $imgPath = public_path('Uploads') . '/' . $nomImage;
+    $imgServe->save($imgPath);
+
+    return response()->json(['imagen'=>$nomImage]);
+
+})->name('image.store');

@@ -21,21 +21,24 @@
         <h2 class="text-3xl font-bold text-center p-5">
             La aventura vale la pena
         </h2>
-        <div class="lugares  flex justify-around items-center flex-col">
-            <div class="informacion cursor-pointer">
-                <div class="flex flex-row bg-slate-300 w-1/3 m-5" id="info">
-                    <h3 class="text-center p-2 text-2xl font-bold">Huánuco</h3>
+        <div class="lugares  flex flex-row justify-center items-center">
+            @foreach ($destinos as $lugar)
+            <div class="bg-gray-200 shadow-lg rounded w-1/5 m-2 p-5 h-80">
+                <div class="h-56">
+                    <p>Lugar: {{ $lugar->nombre }}</p>
+                    <p>Ubicaion: {{ $lugar->ubicacion }}</p>
+                    <p>Clima: {{ $lugar->clima }}</p>
+                    <p>Costumbres: {{ $lugar->costumbres }}</p>
+                    <p>Horario: {{ $lugar->horario_salida }}</p>
                 </div>
-                <div class="flex flex-row bg-slate-300 w-1/3 m-5" id="info">
-                    <h3 class="text-center p-2 text-2xl font-bold">Lima</h3>
-                </div>
-                <div class="flex flex-row bg-slate-300 w-1/3 m-5" id="info">
-                    <h3 class="text-center p-2 text-2xl font-bold">Tingo Maria</h3>
-                </div>
-                <div class="flex flex-row bg-slate-300 w-1/3 m-5" id="info">
-                    <h3 class="text-center p-2 text-2xl font-bold">Mas Lugares</h3>
-                </div>
+                <input type="button" id="{{ $lugar->nombre }}" onclick="mostra(this.id)" value="Comprar Pasaje" class="bg-blue-500 text-white p-3 w-full rounded-lg relative bottom-0 cursor-pointer">
             </div>
+            @endforeach
+            <script>
+                function mostra(id) {
+                    console.log(id);
+                }
+            </script>
         </div>
     </div>
 @endsection
