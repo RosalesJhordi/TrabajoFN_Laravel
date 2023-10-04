@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('costumbres');
             $table->dateTime('horario');
             $table->string('imagen');
-            $table->string('costo');
-            $table->string('descuento');
+            $table->integer('costo');
+            $table->integer('descuento');
             $table->timestamps();
         });
     }

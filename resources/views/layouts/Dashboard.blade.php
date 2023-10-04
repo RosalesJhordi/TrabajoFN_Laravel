@@ -55,9 +55,7 @@
     
             navItems.forEach(item => {
                 item.addEventListener("click", function () {
-                    // Supprimez la classe "active" de tous les éléments de la barre latérale
                     navItems.forEach(item => item.classList.remove("active"));
-                    // Ajoutez la classe "active" à l'élément cliqué
                     this.classList.add("active");
                 });
             });

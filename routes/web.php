@@ -23,6 +23,9 @@ use App\Http\Controllers\RegisterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/asientos',function(){
+    return view('Asientos.Asientos');
+})->name('asientos');
 
 Route::get('/agregar',[AgregarController::class,'index'])->name('agregar');
 Route::post('/agregar',[AgregarController::class,'store']);
@@ -63,7 +66,7 @@ Route::post('/image',function(Request $request){
 
     $nomImage = Str::uuid() . "." . $imagen->extension();
     $imgServe = Image::make($imagen);
-    $imgServe->fit(1000,1000);
+    $imgServe->fit(2000,2000);
 
     $imgPath = public_path('Uploads') . '/' . $nomImage;
     $imgServe->save($imgPath);

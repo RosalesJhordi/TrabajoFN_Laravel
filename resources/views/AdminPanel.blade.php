@@ -37,10 +37,10 @@
     
     </header>
     <main>
-        <div class="flex">
+        <div class="flex flex-wrap">
             @foreach ($destinos as $lugar)
-            <div class="rounded-xl p-2 shadow-lg shadow-black w-1/5 m-2">
-                <img src="{{ asset('Uploads') . '/' . $lugar->imagen }}" alt="Imagen del lugar">
+            <div class="rounded-xl p-2 border shadow-black w-1/5 m-2">
+                <img src="{{ asset('Uploads') . '/' . $lugar->imagen }}" alt="Imagen del lugar" class="w-full h-60">
                 <p>{{ $lugar->nombre }}</p>
                 <p>{{ $lugar->ubicacion }}</p>
                 <p>{{ $lugar->clima }}</p>

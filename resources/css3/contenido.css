@@ -1,0 +1,114 @@
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.anuncios {
+    width: 100%;
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.shape {
+    width: 40%;
+    height: 100%;
+    border-radius: 100% 0% 0% 0% / 100% 0% 0% 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-bottom-right both;
+}
+
+.shape img {
+    filter: drop-shadow(8PX 8PX 0PX rgba(255, 255, 255, 0.565));
+}
+
+@keyframes circle-in-bottom-right {
+    from {
+        clip-path: circle(0%);
+    }
+
+    to {
+        clip-path: circle(150% at bottom right);
+    }
+}
+
+.box-editar {
+    box-shadow: 0px 0px 10px 2px grey;
+    border-radius: 10px
+}
+
+.box-editar:hover {
+    transform: scale(0.98);
+}
+
+.lugares {
+    height: auto;
+    width: 95%;
+    margin: auto;
+}
+
+.sections {
+    width: 30%;
+    margin: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 45vh;
+    border: solid 1px rgba(0, 0, 0, 0.154);
+    border-radius: 10px;
+}
+
+.sections img {
+    width: 100%;
+    height: 80%;
+}
+
+.fa-ticket {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 0px solid #000000;
+}
+
+.fa-ticket:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    grid-area: footer;
+}
+
+.asientos {
+    width: 90%;
+    height: 60vh;
+    border: 1px solid;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.asientos p {
+    border-radius: 50%;
+}
+
+.asientos p:hover,
+.asientos p.active {
+    background: red;
+}
+.precio{
+    width: 150px;
+    border-radius: 10px 10px 200px 10px;
+-moz-border-radius: 10px 10px 200px 10px;
+-webkit-border-radius: 10px 10px 200px 10px;
+border: 0px solid #000000;
+}

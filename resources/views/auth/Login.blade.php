@@ -64,6 +64,9 @@ Login
                 <input type="checkbox" name="recordar" id="recordar" class="w-5 h-5 mr-3"> Mantener sesion iniciada
             </div>
             <input type="submit" value="Iniciar" class="bg-blue-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full border p-3  text-white rounded-lg mt-10">
+            <div class="w-full bg-blue-200 text-center mt-10 border-t-1 border-stone-950">
+                <a href="" class="text-center mt-10 font-bold">Olvidaste tu contraseña ?</a>
+            </div>
         </form>
     </div>
 </div>
