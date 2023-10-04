@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('titulo')
@@ -80,7 +79,6 @@ Registro
         <img src="{{ asset('img/Peru03.jpg') }}" class="galeria-img" alt="Logo Register" onclick="toggleImagen(this)">
         <img src="{{ asset('img/Peru.jpg') }}" class="galeria-img" alt="Logo Register" onclick="toggleImagen(this)">
         <img src="{{ asset('img/Peru04.jpg') }}" class="galeria-img" alt="Logo Register" onclick="toggleImagen(this)">
-        
     </div>
 
     <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">

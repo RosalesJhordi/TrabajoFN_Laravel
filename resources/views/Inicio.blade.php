@@ -1,4 +1,6 @@
 @vite('resources/css/styles.css')
+@vite('resources/css3/contenido.css')
+<script src="https://kit.fontawesome.com/a22afade38.js" crossorigin="anonymous"></script>
 
 @extends('layouts.app')
 
@@ -36,22 +38,40 @@
         <h2 class="text-3xl font-bold text-center p-5">
             La aventura vale la pena
         </h2>
-        <div class="lugares flex flex-row justify-center items-center">
+        <div class="flex flex-wrap justify-between cursor-pointer lugares">
             @foreach ($destinos as $lugar)
-                <div class="lugar flex m-5 justify-center text-start">
-                    <img src="{{ asset('Uploads') . '/' . $lugar->imagen }}" alt="Imagen del lugar">
-                    <div class="informacion flex-col items-center">
-                        <h1 class="font-bold text-2xl mt-5 mb-1">{{ $lugar->nombre }}</h1>
-                        <h4>Ubicacion: {{$lugar->ubicacion}}</h4>
-                        <h4>Clima: {{$lugar->clima}}</h4>
-                        <h4>Costumbres: {{$lugar->costumbres}}</h4>
-                        <h4>Costo: {{$lugar->costo}}</h4>
-                        <h4>Descuento: {{ $lugar->descuento}}</h4>
-                        <h2>Total: {{ $lugar->costo - $lugar->descuento }}</h2>
-                        <a href="{{route('login')}}" class=" relative bottom-0 text-white bg-blue-500 p-2 w-1/2 rounded-lg text-center ">Comprar</a>
+            <section class="sections">
+                <div class="text-center">
+                    <h1 class="absolute font-bold text-xl bg-white p-2 bord precio text-start">
+                        <span class="text-green-500">
+                            Ahora: S/{{$lugar->costo - $lugar->descuento}}
+                        </span><br> 
+                        <span class="line-through text-red-600 text-lg">
+                           Antes: S/{{$lugar->costo}} 
+                        </span>                           
+                        
+                    </h1>
+                   <img src="{{ asset('Uploads') . '/' . $lugar->imagen }}" alt="Imagen del lugar"> 
+                </div>
+                <div class="informacion flex justify-between items-center m-5">
+                    <h1>
+                        <span class="font-bold text-xl">
+                            {{$lugar->nombre}} - {{$lugar->ubicacion}}
+                        </span>
+                        <br>
+                        <span class="font-semibold">
+                            {{$lugar->costumbres}}
+                        </span>
+                    </h1>
+                    <div class="text-2xl">
+                        <i class="fa-solid fa-heart p-1 text-red-300 hover:text-red-600"></i>
+                        <i class="fa-solid fa-bookmark p-1 text-gray-400"></i>
+                        <i class="fa-solid fa-ticket ml-3 p-3 bg-orange-500 text-white"></i>
                     </div>
                 </div>
+            </section>
             @endforeach
         </div>
     </div>
+    
 @endsection

@@ -70,7 +70,7 @@
                         <div class="text-2xl">
                             <i class="fa-solid fa-heart p-1 text-red-300"></i>
                             <i class="fa-solid fa-bookmark p-1 text-gray-400"></i>
-                            <i class="fa-solid fa-ticket ml-3 p-3 bg-orange-500 text-white"></i>
+                            <i class="fa-solid fa-ticket ml-3 p-3 bg-orange-500 text-white" onclick="asientos()"></i>
                         </div>
                     </div>
                 </section>
@@ -92,11 +92,11 @@
                         Siguenos: 
                     </span>
                     <br><br>
-                    <a href="" class="m-1 cursor-pointer text-2xl"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="" class="m-1 cursor-pointer text-2xl"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="" class="m-1 cursor-pointer text-2xl"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="" class="m-1 cursor-pointer text-2xl"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="" class="m-1 cursor-pointer text-2xl"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="" class="m-1 cursor-pointer text-2xl hover:text-black"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="" class="m-1 cursor-pointer text-2xl hover:text-black"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="" class="m-1 cursor-pointer text-2xl hover:text-black"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="" class="m-1 cursor-pointer text-2xl hover:text-black"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="" class="m-1 cursor-pointer text-2xl hover:text-black"><i class="fa-brands fa-telegram"></i></a>
                 </h1>
             </div>
             <div class=" h-32 flex items-center">

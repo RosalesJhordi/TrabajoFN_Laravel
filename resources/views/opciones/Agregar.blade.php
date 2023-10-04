@@ -62,9 +62,9 @@
         </div>
         <div class="mt-5">
             <label for="costumbres" class="mb-2 block uppercase text-black font-bold text-start">
-                Costumbres
+                Descripcion
             </label>
-            <textarea id="costumbres" name="costumbres" type="text" placeholder="Costrumbres del lugar" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('costumbres') border-red-500 @enderror" value={{ old('costumbres') }}></textarea>
+            <textarea id="costumbres" name="costumbres" type="text" placeholder="Descripcion del lugar" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('costumbres') border-red-500 @enderror" value={{ old('costumbres') }}></textarea>
             @error('costumbres')
                 <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
             @enderror

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CityTours - @yield('titulo')</title>
     @vite('resources/css/app.css')
+    <script src="https://kit.fontawesome.com/a22afade38.js" crossorigin="anonymous"></script>
     {{-- @stack('styles') --}}
 </head>
 <body class="m-0">
@@ -25,8 +26,31 @@
         
         @yield('contenido')
     </main>
-    <footer class="text-center p-5 text-gray-500 font-bold uppercase mt-10 ">
-            CityTours - todo los derechos reservados {{ now()->year }}
+    <footer class="w-full text-center p-5 flex text-xl text-gray-500 bg-gray-300 justify-center items-center">
+        <div class="border-r p-5 text-start h-32">
+            <h1 class="font-bold">Informacion para tu viaje:</h1>
+            <h2>
+                Clima y pronosticos <br>
+                Areas Naturales Protegidas <br>
+                Tourist Police Perú
+            </h2>
+        </div>
+        <div class="border-r p-5  h-32">
+            <h1 class="font-bold">
+                <span>
+                    Siguenos: 
+                </span>
+                <br><br>
+                <a href="" class="m-1 cursor-pointer text-2xl"><i class="fa-brands fa-facebook"></i></a>
+                <a href="" class="m-1 cursor-pointer text-2xl"><i class="fa-brands fa-twitter"></i></a>
+                <a href="" class="m-1 cursor-pointer text-2xl"><i class="fa-brands fa-instagram"></i></a>
+                <a href="" class="m-1 cursor-pointer text-2xl"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="" class="m-1 cursor-pointer text-2xl"><i class="fa-brands fa-telegram"></i></a>
+            </h1>
+        </div>
+        <div class=" h-32 flex items-center">
+            <img src="{{asset('img/perusalen.png')}}" alt="perusalen" class="w-1/2 m-5">
+        </div>
     </footer>
 </body>
 </html>
