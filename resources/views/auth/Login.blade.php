@@ -1,5 +1,7 @@
 @extends('layouts.app')
 <script defer src="https://app.embed.im/snow.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
 
 @section('titulo')
 Login
@@ -37,9 +39,6 @@ Login
         <form action="{{ route('login') }}" method="POST" novalidate>
             {{--  Cross-Site Request Forgery --}}
             @csrf
-            @if(session('mensaje'))
-                <p class="bg-red-500 text-white my-2 font-bold rounded-lg text-sm p-2 text-center">{{ session('mensaje') }}</p>
-                @endif
             <div>
                 <label for="email" class="mb-2 block uppercase text-black font-bold">
                     Email
@@ -70,4 +69,15 @@ Login
         </form>
     </div>
 </div>
+@if(session('mensaje'))
+    <script>
+        iziToast.show({
+            title: 'Error',
+            message: '{{ session('mensaje') }}',
+            theme: 'light',
+            color: 'red',
+            position: 'top',
+        });
+    </script>
+@endif
 @endsection

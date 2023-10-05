@@ -14,6 +14,8 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\AgregarController;
 use App\Http\Controllers\OpcionesController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ReservarController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,23 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
+Route::post('/reservar',[ReservarController::class,'store'])->name('reservar');
+
+Route::get('/reservar',function(){
+    return view('informacion');
+})->name('informacion');
+
+Route::get('/inicio', function () {
+    $destinos = Lugares::all();
+    $user = auth()->user();
+    return view('navs.Inicio', ['destinos' => $destinos, 'user' => $user]);
+})->name('inicio');
+
+Route::get('/reservas', function () {
+    $destinos = Lugares::all();
+    $user = auth()->user();
+    return view('navs.Reservas', ['destinos' => $destinos, 'user' => $user]);
+})->name('reservas');
 
 Route::post('/delete',function(Request $request){
     $id = $request->input('id');

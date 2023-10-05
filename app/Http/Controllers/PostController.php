@@ -17,7 +17,7 @@ class PostController extends Controller
         $destinos = Lugares::all();
         $user = auth()->user(); // Obtener el usuario autenticado
 
-        return view('Usuario', [
+        return view('navs.Inicio', [
             'user' => $user,
             'destinos' => $destinos
         ]);
