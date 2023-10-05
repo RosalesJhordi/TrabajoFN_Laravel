@@ -15,7 +15,7 @@
             <p class="font-bold text-5xl text-center mt-10" id="alias">ct</p>
             <span class="text font-bold text-4xl text-center mt-10" id="titulo">CityTours</span>
         </div>
-        <div class="item active">
+        <div class="item" onclick="window.location.href = '{{route('user')}}';">
             <div class="text-2xl w-full flex justify-center p-4 mt-5 conte">
                 <i class="fa-solid fa-house"></i>
                 <span class="text text-center">Inicio</span>
@@ -39,7 +39,7 @@
                 <span class="text text-center">Recomendado</span>
             </div>
         </div>
-        <div class="item">
+        <div class="item" onclick="window.location.href = '{{route('boletos')}}';">
             <div class="text-2xl w-full flex justify-center p-4 mt-5 conte">
                 <i class="fa-solid fa-clipboard-check"></i>
                 <span class="text text-center">Mi Boleta</span>
@@ -48,18 +48,6 @@
     </div>
     <div class="full-container flex flex-col">
         @yield('container')
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const navItems = document.querySelectorAll('.item');
-    
-            navItems.forEach(item => {
-                item.addEventListener("click", function () {
-                    navItems.forEach(item => item.classList.remove("active"));
-                    this.classList.add("active");
-                });
-            });
-        });
-    </script>    
+    </div>   
 </body>
 </html>

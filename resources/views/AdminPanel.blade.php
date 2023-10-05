@@ -8,6 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @vite('resources/css/app.css')
     <script src="https://kit.fontawesome.com/a22afade38.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+
     @vite('resources/css3/contenido.css')
     <style>
         ::-webkit-scrollbar{
@@ -55,9 +58,17 @@
                         <span class="font-semibold">
                             {{$lugar->costumbres}}
                         </span>
+                        
                     </h1>
-                    <div class="text-2xl">
-                        <i class="fa-solid fa-trash text-red-600 p-3 hover:bg-blue-200 rounded-3xl"></i>
+                    <div class="text-2xl flex">
+                        <form action="{{route('eliminar')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" id="id" value="{{$lugar->id}}">
+                            <button class="submit">
+                                <i class="fa-solid fa-trash text-red-600 p-3 hover:bg-blue-200 rounded-3xl"></i>  
+                            </button>
+                        </form>
+                        
                         <i class="fa-solid fa-pen text-yellow-500 p-3 hover:bg-blue-200 rounded-3xl"></i>
                     </div>
                 </div>
@@ -91,5 +102,17 @@
             <img src="{{asset('img/perusalen.png')}}" alt="perusalen" class="w-1/2 m-5">
         </div>
     </footer>
+    @if(session('success'))
+    <script>
+        iziToast.show({
+            title: 'Éxito',
+            message: '{{ session('success') }}',
+            theme: 'light',
+            color: 'green',
+            position: 'topcenter',
+        });
+    </script>
+@endif
+
 </body>
 </html>

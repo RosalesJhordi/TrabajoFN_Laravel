@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use App\Models\Lugares;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -23,6 +24,19 @@ use App\Http\Controllers\RegisterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::post('/delete',function(Request $request){
+    $id = $request->input('id');
+    Lugares::destroy($id);
+    return back()->with('success', 'Lugar eliminado correctamente');
+})->name('eliminar');
+
+Route::get('/Boletos',function(){
+    return view('Boletos');
+})->name('boletos');
+
+
 Route::get('/asientos',function(){
     return view('Asientos.Asientos');
 })->name('asientos');
@@ -58,7 +72,6 @@ Route::get('/{user:name}',[PostController::class,'index'])->name('post.index');
 //ruta admin 
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
 //opciones admin
-
 //iamgenes 
 Route::post('/image',function(Request $request){
     

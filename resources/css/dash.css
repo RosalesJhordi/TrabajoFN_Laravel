@@ -50,8 +50,7 @@ body{
 .tt{
     margin-bottom: 200px;
 }
-.item:hover,
-.item.active{
+.item:hover{
     background-color: orangered;
     border-radius: 0px 200px 200px 0px;
     -moz-border-radius: 0px 200px 200px 0px;
