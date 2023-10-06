@@ -27,17 +27,14 @@ use App\Http\Controllers\ReservarController;
 |
 */
 
-Route::post('/reservar',[ReservarController::class,'store'])->name('reservar');
-
-Route::get('/reservar',function(){
-    return view('informacion');
-})->name('informacion');
+Route::post('/{nombre}',[ReservarController::class,'store'])->name('reservar');
 
 Route::get('/inicio', function () {
     $destinos = Lugares::all();
     $user = auth()->user();
     return view('navs.Inicio', ['destinos' => $destinos, 'user' => $user]);
 })->name('inicio');
+
 
 Route::get('/reservas', function () {
     $destinos = Lugares::all();

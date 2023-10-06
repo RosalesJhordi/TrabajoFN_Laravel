@@ -1,0 +1,32 @@
+.informacion{
+    width: 100%;
+    height: 100vh;
+}
+.informacion .lugar{
+    width: 90%;
+    height: 80vh;
+}
+.lugar img{
+    width: 50%;
+}
+.actividades{
+    width: 80%;
+    height: 30vh;
+    margin-top: 20px;
+}
+.lugar .datos{
+    width: 50%;
+    height: 100%;
+}
+.qr-container{
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+.info-qr{
+    width: 50%;
+}
+.datos button{
+    width: 40%;
+    margin: 0 auto;
+}

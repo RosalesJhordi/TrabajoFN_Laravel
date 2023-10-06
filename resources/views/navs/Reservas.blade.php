@@ -34,7 +34,7 @@
                                {{$lugar->costumbres}} 
                             </span>
                             <span class="flex items-center">
-                                <form action="{{route('reservar')}}" method="POST" class="text-2xl mt-5 flex items-cente">
+                                <form action="{{route('reservar',['nombre'=>$lugar->nombre])}}" method="POST" class="text-2xl mt-5 flex items-cente">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$lugar->id}}">
                                     <i class="fa-solid fa-star hover:text-yellow-400 cursor-pointer m-2"></i>
