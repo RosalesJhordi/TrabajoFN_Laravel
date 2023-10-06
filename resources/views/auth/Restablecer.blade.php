@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('titulo')
-Registro
+Restablecer
 @endsection
 
 @section('titulo2')
 <span class="p-1">
-   Registrate en City Tours 
+   Olvidaste tu contraseña ?
 </span>
 @endsection
 
@@ -72,7 +72,7 @@ Registro
 
 
 @section('contenido')
-<div class="md:flex md:justify-center md:gap-10 md:items-center mt-10" >
+<div class="md:flex md:justify-center mb-20 md:gap-10 md:items-center mt-10" >
     <div class="md:w-5/12 galeria">
         <img src="{{ asset('img/Peru01.jpg') }}" class="galeria-img" alt="Logo Register" onclick="toggleImagen(this)">
         <img src="{{ asset('img/Peru02.jpg') }}" class="galeria-img" alt="Logo Register" onclick="toggleImagen(this)">
@@ -82,39 +82,11 @@ Registro
     </div>
 
     <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
-        <form action="{{ route('registro') }}" method="POST" novalidate>
+        <form action="{{ route('restablecer') }}" method="POST" novalidate>
             @csrf
-            
-            <div>
-                <label for="name" class="mb-2 block uppercase text-black font-bold">
-                    Nombre
-                </label>
-                <input id="name" name="name" type="text" placeholder="Tu Nombre" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('name') border-red-500 @enderror" value={{ old('name') }}>
-                {{-- si el campo esta vacio --}}
-                @error('name')
-                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
-                @enderror
-            </div>
-            <div>
-                <label for="apellidos" class="mb-2 block uppercase text-black font-bold">
-                    Apellidos
-                </label>
-                <input id="apellidos" name="apellidos" type="text" placeholder="Tu Apellidos" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('apellidos') border-red-500 @enderror" value={{old('apellidos')}}>
-                {{-- si el campo esta vacio --}}
-                @error('apellidos')
-                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
-                @enderror
-            </div>
-            <div>
-                <label for="telefono" class="mb-2 block uppercase text-black font-bold">
-                    Telefono
-                </label>
-                <input id="telefono" name="telefono" type="text" placeholder="Tu Telefono" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('telefono') border-red-500 @enderror" value={{old('telefono')}}>
-                {{-- si el campo esta vacio --}}
-                @error('telefono')
-                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
-                @enderror
-            </div>
+            @if(session('mensaje'))
+            <p class="bg-green-500 text-white my-2 font-bold rounded-lg text-sm p-2 text-center">{{ session('mensaje') }}</p>
+        @endif
             <div>
                 <label for="email" class="mb-2 block uppercase text-black font-bold">
                     Email
@@ -125,24 +97,8 @@ Registro
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
                 @enderror
             </div>
-            <div class="mb:5">
-                <label for="password" class="mb-2 block uppercase text-black font-bold">
-                    Password
-                </label>
-                <input id="password" name="password" type="password" placeholder="Tu Password" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('password') border-red-500 @enderror">
-                {{-- si el campo esta vacio --}}
-                @error('password')
-                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
-                @enderror
-            </div>
-            <div>
-                <label for="password_confirmation" class="mb-2 block uppercase text-black font-bold">
-                    Password
-                </label>
-                <input id="password_confirmation" name="password_confirmation" type="password" placeholder="Repita Password" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg ">
-            </div>
 
-            <input type="submit" value="Crear cuenta" class="bg-blue-600 hover:bg-blue-700 transition-colors cursor-pointer uppercase font-bold w-full border p-3  text-white rounded-lg mt-10">
+            <input type="submit" value="Emviar Codigo" class="bg-blue-600 hover:bg-blue-700 transition-colors cursor-pointer uppercase font-bold w-full border p-3  text-white rounded-lg mt-10">
         </form>
     </div>
 </div>

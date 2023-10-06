@@ -15,7 +15,8 @@ use App\Http\Controllers\AgregarController;
 use App\Http\Controllers\OpcionesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReservarController;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CodigoEmail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +28,20 @@ use App\Http\Controllers\ReservarController;
 |
 */
 
+
+Route::get('/restablecer',function(){
+    return view('auth.Restablecer');
+})->name('restablecer');
+
+Route::post('/restablecer',function (Request $request){
+
+    $email = $request->input('email');
+    $codigo = str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT);
+
+    Mail::to('yhordiyhom65@gmail.com')->send(new CodigoEmail($codigo));
+
+})->name('restablecer');
+
 Route::post('/{nombre}',[ReservarController::class,'store'])->name('reservar');
 
 Route::get('/inicio', function () {
@@ -34,7 +49,6 @@ Route::get('/inicio', function () {
     $user = auth()->user();
     return view('navs.Inicio', ['destinos' => $destinos, 'user' => $user]);
 })->name('inicio');
-
 
 Route::get('/reservas', function () {
     $destinos = Lugares::all();
@@ -82,8 +96,9 @@ Route::get('login',[LoginController::class,'index'])->name('login');
 Route::post('login',[LoginController::class,'store']);
 
 //redirecionar-
-
-Route::get('/{user:name}',[PostController::class,'index'])->name('post.index');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/{user:name}',[PostController::class,'index'])->name('post.index');
+});
 
 //ruta admin 
 Route::get('/admin',[AdminController::class,'index'])->name('admin');

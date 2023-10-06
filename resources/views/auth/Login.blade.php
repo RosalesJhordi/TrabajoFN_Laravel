@@ -39,6 +39,9 @@ Login
         <form action="{{ route('login') }}" method="POST" novalidate>
             {{--  Cross-Site Request Forgery --}}
             @csrf
+            @if(session('mensaje'))
+            <p class="bg-red-500 text-white my-2 font-bold rounded-lg text-sm p-2 text-center">{{ session('mensaje') }}</p>
+        @endif
             <div>
                 <label for="email" class="mb-2 block uppercase text-black font-bold">
                     Email
@@ -64,7 +67,7 @@ Login
             </div>
             <input type="submit" value="Iniciar" class="bg-blue-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full border p-3  text-white rounded-lg mt-10">
             <div class="w-full p-5 text-center mt-10 border-t-1 border-t">
-                <a href="" class="text-center text-blue-500 font-bold">Olvidaste tu contraseña ?</a>
+                <a href="{{route('restablecer')}}" class="text-center text-blue-500 font-bold">Olvidaste tu contraseña ?</a>
             </div>
         </form>
     </div>
