@@ -84,7 +84,7 @@ Registro
     <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
         <form action="{{ route('registro') }}" method="POST" novalidate>
             @csrf
-            
+
             <div>
                 <label for="name" class="mb-2 block uppercase text-black font-bold">
                     Nombre

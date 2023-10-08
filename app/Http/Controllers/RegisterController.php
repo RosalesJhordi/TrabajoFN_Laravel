@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,7 +18,7 @@ class RegisterController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'apellidos' => 'required|min:5|max:30',
-            'telefono' => 'required|',
+            'telefono' => 'required',
             'email' => 'required|unique:users|email',
             'password' => 'required|confirmed|min:6'
         ]);

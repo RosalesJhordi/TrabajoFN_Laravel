@@ -10,7 +10,4 @@ class LogoutController extends Controller
         auth()->Logout();
         return redirect()->route('login');
     }
-    public function store(){
-        return "desde img controller";
-    }
 }

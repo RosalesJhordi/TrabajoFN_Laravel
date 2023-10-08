@@ -33,22 +33,22 @@
                     <div class="text-center image">
                         <h1 class="absolute font-bold text-xl bg-white p-2 bord precio text-start">
                             <span class="text-green-500">
-                                Ahora: S/{{$lugar->costo - $lugar->descuento}}
+                                Ahora: S/{{$lugar['costo'] - $lugar['descuento']}}
                             </span><br> 
                             <span class="line-through text-red-600 text-lg">
-                               Antes: S/{{$lugar->costo}} 
+                               Antes: S/{{$lugar['costo']}} 
                             </span>                           
                         </h1>
-                       <img src="{{ asset('Uploads') . '/' . $lugar->imagen }}" alt="Imagen del lugar"> 
+                       <img src="{{ asset('Uploads') . '/' . $lugar['imagen'] }}" alt="Imagen del lugar">
                     </div>
                     <div class="informacion flex justify-between items-center mt-2">
                         <h1 class="ml-5">
                             <span class="font-bold text-xl">
-                                {{$lugar->nombre}} - {{$lugar->ubicacion}}
+                                {{$lugar['nombre']}} - {{$lugar['ubicacion']}}
                             </span>
                             <br>
                             <span class="font-semibold">
-                                {{$lugar->costumbres}}
+                                {{$lugar['descripcion']}}
                             </span>
                         </h1>
                         <div class="text-2xl flex justify-center items-center text-gray-500 mr-5">
