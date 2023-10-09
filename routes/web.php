@@ -20,10 +20,23 @@ use App\Mail\CodigoEmail;
 
 
 use Illuminate\Support\Facades\Http;
+//Registro
 
+Route::get('/registro',[RegisterController::class,'index'])->name('register');
+
+Route::post('/registro',[RegisterController::class,'store'])->name('register.store');
 //Ruta reservaciones
 
-Route::get('/reservas', function () { $destinos = Lugares::all(); $user = auth()->user(); return view('navs.Reservas', ['destinos' => $destinos, 'user' => $user]); })->name('reservas');
+Route::get('/reservas', function () { 
+
+    $url = env("URL_SERVER_API",'http://127.0.0.1');
+    $response = Http::get($url.'/Servicios');
+    $destinos = $response->json();
+    $user = auth()->user(); 
+    return view('navs.Reservas', ['destinos' => $destinos, 'user' => $user]);
+
+})->name('reservas');
+
 Route::post('/{nombre}',[ReservarController::class,'store'])->name('reservar');
 
 //Routes administrador
@@ -56,6 +69,7 @@ Route::post('/image',function(Request $request){
 //Inicio
 
 Route::get('/',function(){
+
     $url = env("URL_SERVER_API",'http://127.0.0.1');
     $response = Http::get($url.'/Servicios');
     $destinos = $response->json();
@@ -63,10 +77,6 @@ Route::get('/',function(){
 });
 Route::get('/inicio',function(){ $destinos = Lugares::all(); $user = auth()->user(); return view('navs.Inicio',['destinos' => $destinos, 'user' => $user]); })->name('inicio');
 
-//Registro
-
-Route::get('/registro',[RegisterController::class,'index'])->name('registro');
-Route::post('/registro',[RegisterController::class,'store']);
 
 //Login
 
@@ -82,4 +92,4 @@ Route::get('/restablecer',function(){ return view('auth.Restablecer'); })->name(
 
 //Redirecionar si el usuario esta verificado o aya creado cuenta
 
-Route::get('/{user:name}',[PostController::class,'index'])->name('post.index');
+Route::get('/{nombreCliente}',[PostController::class,'index'])->name('post.index');

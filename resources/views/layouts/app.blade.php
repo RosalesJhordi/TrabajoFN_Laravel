@@ -17,7 +17,7 @@
         </div>
             <nav class="flex items-center justify-center">
                 <a class="mr-4 cursor-pointer font-bold" href="/">Inicio</a>
-                <a class="mr-4 cursor-pointer font-bold" href="{{ route('registro') }}">Crear cuenta</a>
+                <a class="mr-4 cursor-pointer font-bold" href="{{ route('register') }}">Crear cuenta</a>
                 <a class="cursor-pointer font-bold" href="{{ route('login') }}">Iniciar sesion</a>
             </nav>
     </header>
