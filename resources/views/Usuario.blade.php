@@ -30,9 +30,9 @@
             <i class="cursor-pointer fa-solid fa-clipboard-check hover:-rotate-45 transition-transform ease-in-out hover:text-blue-600"></i>
         </div>
         <div>
-            @if (auth()->user()->email == "Rosales@gmail.com")
+            @if ($user['email'] == "Rosales@gmail.com")
                 <div class=" w-full h-10 flex justify-end items-end mt-2 pb-2">
-                    <h1 class="mr-5 text-lg font-bold">Hola: {{ $user->name}}</h1>
+                    <h1 class="mr-5 text-lg font-bold">Hola: {{ $user['name']}}</h1>
                     <a href="{{ route('logout') }}" class="text-2xl mr-5"><i class="fa-solid fa-arrow-right-from-bracket text-gray-500 hover:text-black"></i></a>
                 </div>
                 {{-- opciones de admin --}}
@@ -45,9 +45,9 @@
                     <p class="ml-5 font-semibold p-1">Puedes editar pasajes, horario, etc</p>
                 </div></a>
                 {{-- usuario normal --}}
-            @elseif (auth()->user())
+            @else
                 <div class=" w-full h-10 flex justify-end items-end mt-2 pb-2">
-                    <h1 class="mr-5 text-lg font-bold">Hola: {{ $user->name}}</h1>
+                    <h1 class="mr-5 text-lg font-bold">Hola: {{ $user['name']}}</h1>
                     <img src="{{ asset('img/usuario.svg')}}" alt="Imagen usuario" class="w-8 mr-5 cursor-pointer" onclick="datos()"/>
                     <a href="{{ route('logout') }}" class="text-2xl mr-5"><i class="fa-solid fa-arrow-right-from-bracket text-gray-500 hover:text-black hover:translate-x-2 transition-transform ease-in-out"></i></a>
                 </div> 
@@ -96,7 +96,7 @@
                     </div>
                     <div class="text-2xl text-black text-center mt-10">
                         <span class="mt-5 font-semibold text-4xl">
-                            {{ $user->name}} {{ $user->apellidos}} <br>
+                            {{ $user["name"]}} {{ $user["apellidos"]}} <br>
                         </span >
                     </div>
                 </div>

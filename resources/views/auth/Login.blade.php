@@ -36,7 +36,7 @@ Login
     </div>
 
     <div class="md:w-4/12 bg-white p-6 pt-20 pb-20 rounded-lg shadow-xl">
-        <form action="{{ route('login') }}" method="POST" novalidate>
+        <form action="{{ route('login.store') }}" method="POST" novalidate>
             {{--  Cross-Site Request Forgery --}}
             @csrf
             @if(session('mensaje'))

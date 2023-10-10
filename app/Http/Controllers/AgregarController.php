@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lugares;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class AgregarController extends Controller
 {
@@ -23,7 +24,9 @@ class AgregarController extends Controller
             'descuento' => 'required'
         ]);
 
-        Lugares::create([
+        $url = env("URL_SERVER_API",'http://127.0.0.1');
+
+        $response = Http::post($url . '/Servicios',[
             'nombre' => $request -> nombre,
             'ubicacion' => $request -> ubicacion,
             'clima' => $request -> clima,
@@ -33,7 +36,6 @@ class AgregarController extends Controller
             'costo' => $request -> costo,
             'descuento' => $request -> descuento
         ]);
-
         return back()->with('mensaje','Lugar Añadido con exito');
     }
 }

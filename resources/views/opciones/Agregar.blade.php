@@ -23,7 +23,7 @@
             @csrf
         </form>
     </div>
-    <form action="{{route('agregar')}}" method="POST" class="datos-form shadow-2xl rounded-lg m-auto flex flex-col p-5 w-1/2">
+    <form action="{{route('agregar.store')}}" method="POST" class="datos-form shadow-2xl rounded-lg m-auto flex flex-col p-5 w-1/2">
         @csrf
         @if(session('mensaje'))
             <p class="bg-green-500 text-white my-2 font-bold rounded-lg text-sm p-2 text-center">{{ session('mensaje') }}</p>

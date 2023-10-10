@@ -82,7 +82,7 @@ Registro
     </div>
 
     <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
-        <form action="{{route('reg')}}" method="POST" novalidate>
+        <form action="{{route('register')}}" method="POST" novalidate>
             @csrf
 
             <div>

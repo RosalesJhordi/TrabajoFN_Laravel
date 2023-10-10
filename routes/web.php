@@ -20,19 +20,25 @@ use App\Mail\CodigoEmail;
 
 
 use Illuminate\Support\Facades\Http;
+//agregar lugares
+Route::get('/agregar-lugar',[AgregarController::class,'index'])->name('agregar.index');
+Route::post('/agregar-lugar',[AgregarController::class,'store'])->name('agregar.store');
 //Registro
 
 Route::get('/registro',[RegisterController::class,'index'])->name('register');
-
 Route::post('/registro',[RegisterController::class,'store'])->name('register.store');
+
+//Login
+
+Route::get('/login',[LoginController::class,'index'])->name('login');
+Route::post('/login',[LoginController::class,'store'])->name('login.store');
+
 //Ruta reservaciones
 
 Route::get('/reservas', function () { 
 
-    $url = env("URL_SERVER_API",'http://127.0.0.1');
-    $response = Http::get($url.'/Servicios');
-    $destinos = $response->json();
-    $user = auth()->user(); 
+    $destinos = Lugares::all();
+    $user = auth()->user();
     return view('navs.Reservas', ['destinos' => $destinos, 'user' => $user]);
 
 })->name('reservas');
@@ -40,15 +46,14 @@ Route::get('/reservas', function () {
 Route::post('/{nombre}',[ReservarController::class,'store'])->name('reservar');
 
 //Routes administrador
+
     //redirecionar
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
 
     //eliminar
 Route::post('/delete',function(Request $request){ $id = $request->input('id'); Lugares::destroy($id); return back()->with('success', 'Lugar eliminado correctamente'); })->name('eliminar');
 
-    //agregar lugares
-Route::get('/agregar',[AgregarController::class,'index'])->name('agregar');
-Route::post('/agregar',[AgregarController::class,'store']);
+    
 
     //subir img a servidor
 Route::post('/image',function(Request $request){
@@ -71,17 +76,14 @@ Route::post('/image',function(Request $request){
 Route::get('/',function(){
 
     $url = env("URL_SERVER_API",'http://127.0.0.1');
-    $response = Http::get($url.'/Servicios');
+    $response = Http::get($url. '/Servicios');
     $destinos = $response->json();
     return view('Inicio',compact('destinos')); 
 });
 Route::get('/inicio',function(){ $destinos = Lugares::all(); $user = auth()->user(); return view('navs.Inicio',['destinos' => $destinos, 'user' => $user]); })->name('inicio');
 
 
-//Login
 
-Route::get('/login',[LoginController::class,'index'])->name('login');
-Route::post('/login',[LoginController::class,'store']);
 
 //logout
 Route::get('logout',[LogoutController::class,'index'])->name('logout');
@@ -92,4 +94,4 @@ Route::get('/restablecer',function(){ return view('auth.Restablecer'); })->name(
 
 //Redirecionar si el usuario esta verificado o aya creado cuenta
 
-Route::get('/{nombreCliente}',[PostController::class,'index'])->name('post.index');
+Route::get('/Bienvenido',[PostController::class,'index'])->name('post.index');

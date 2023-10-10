@@ -30,7 +30,7 @@
             Administrador
         </h1>
         <nav>
-            <a href="{{route('agregar')}}" class="p-2 rounded mr-10 font-bold hover:bg-blue-500 hover:text-white">Agregar</button> 
+            <a href="{{route('agregar.index')}}" class="p-2 rounded mr-10 font-bold hover:bg-blue-500 hover:text-white">Agregar</button> 
             <a href="{{route('logout')}}" id="mostrarFormulario" class="text-2xl mr-5"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </nav>
     </header>

@@ -14,7 +14,7 @@ class Lugares extends Model
         'nombre',
         'ubicacion',
         'clima',
-        'costumbres',
+        'descripcion',
         'horario',
         'imagen',
         'costo',
