@@ -41,34 +41,29 @@
                 <div class="text-center image">
                     <h1 class="absolute font-bold text-xl bg-white p-2 bord precio text-start">
                         <span class="text-green-500">
-                            Ahora: S/{{$lugar->costo - $lugar->descuento}}
+                            Ahora: S/{{$lugar['costo'] - $lugar['descuento']}}
                         </span><br> 
                         <span class="line-through text-red-600 text-lg">
-                           Antes: S/{{$lugar->costo}} 
+                           Antes: S/{{$lugar['costo']}} 
                         </span>                           
                     </h1>
-                   <img src="{{ asset('Uploads') . '/' . $lugar->imagen }}" alt="Imagen del lugar"> 
+                   <img src="{{ asset('Uploads') . '/' . $lugar['imagen'] }}" alt="Imagen del lugar"> 
                 </div>
                 <div class="informacion flex justify-between items-center m-5">
                     <h1>
                         <span class="font-bold text-xl">
-                            {{$lugar->nombre}} - {{$lugar->ubicacion}}
+                            {{$lugar['nombre']}} - {{$lugar['ubicacion']}}
                         </span>
                         <br>
                         <span class="font-semibold">
-                            {{$lugar->costumbres}}
+                            {{$lugar['descripcion']}}
                         </span>
                         
                     </h1>
                     <div class="text-2xl flex">
-                        <form action="{{route('eliminar')}}" method="POST">
-                            @csrf
-                            <input type="hidden" name="id" id="id" value="{{$lugar->id}}">
-                            <button class="submit">
-                                <i class="fa-solid fa-trash text-red-600 p-3 hover:bg-blue-200 rounded-3xl"></i>  
-                            </button>
-                        </form>
-                        
+                        <a href="{{route('eliminar',$lugar['id'])}}">
+                            <i class="fa-solid fa-trash text-red-600 p-3 hover:bg-blue-200 rounded-3xl"></i>  
+                        </a>
                         <i class="fa-solid fa-pen text-yellow-500 p-3 hover:bg-blue-200 rounded-3xl"></i>
                     </div>
                 </div>

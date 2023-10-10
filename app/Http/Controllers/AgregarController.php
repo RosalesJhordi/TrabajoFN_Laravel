@@ -17,31 +17,33 @@ class AgregarController extends Controller
             'nombre' => 'required',
             'ubicacion' => 'required',
             'clima' => 'required',
-            'costumbres' => 'required',
+            'descripcion' => 'required',
             'horario' => 'required',
             'imagen' => 'required',
             'costo' => 'required',
             'descuento' => 'required'
         ]);
-
-        $servicioData = [
+        $url = env("URL_SERVER_API", 'http://127.0.0.1');
+        $response = Http::post($url . '/ServicioAdd', [
             'nombre' => $request->nombre,
             'ubicacion' => $request->ubicacion,
             'clima' => $request->clima,
-            'costumbres' => $request->costumbres,
+            'descripcion' => $request->descripcion,
             'horario' => $request->horario,
             'imagen' => $request->imagen,
             'costo' => $request->costo,
             'descuento' => $request->descuento
-        ];
+        ]);
 
-        $url = env("URL_SERVER_API", 'http://127.0.0.1');
-        $response = Http::post($url . '/Servicios', $servicioData);
+        $suc = $response->json();
+        dd($suc);
+    }
 
-        if ($response->successful()) {
-            return redirect()->route('servicios.index')->with('mensaje', 'Servicio creado con éxito');
-        } else {
-            return back()->with(['message' => 'Error al agregar el lugar']);
-        }
+    public function delete($id){
+        $url = env("URL_SERVER_API",'http://127.0.0.1');
+        $response = Http::delete($url.'/Servicios/'.$id);
+        $us = $response->json();
+        dd($us);
+        // return back()->with('success', 'Lugar eliminado correctamente'); 
     }
 }

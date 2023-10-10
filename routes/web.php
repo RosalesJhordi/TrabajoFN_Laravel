@@ -21,6 +21,9 @@ use App\Mail\CodigoEmail;
 
 use Illuminate\Support\Facades\Http;
 
+//eliminar
+Route::get('/delete/{id}',[AgregarController::class,'delete'])->name('eliminar');
+
 //subir img a servidor
 Route::post('/image',function(Request $request){
     
@@ -67,8 +70,7 @@ Route::post('/{nombre}',[ReservarController::class,'store'])->name('reservar');
     //redirecionar
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
 
-    //eliminar
-Route::post('/delete',function(Request $request){ $id = $request->input('id'); Lugares::destroy($id); return back()->with('success', 'Lugar eliminado correctamente'); })->name('eliminar');
+    
 
     
 
