@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/a22afade38.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @vite('resources/css3/contenido.css')
     <style>
@@ -64,7 +65,10 @@
                         <a href="{{route('eliminar',$lugar['id'])}}">
                             <i class="fa-solid fa-trash text-red-600 p-3 hover:bg-blue-200 rounded-3xl"></i>  
                         </a>
-                        <i class="fa-solid fa-pen text-yellow-500 p-3 hover:bg-blue-200 rounded-3xl"></i>
+                        <button onclick="editar({{$lugar['id']}})">
+                            <i class="fa-solid fa-pen text-yellow-500 p-3 hover:bg-blue-200 rounded-3xl" ></i>
+                        </button>
+                        
                     </div>
                 </div>
             </section>
@@ -106,8 +110,42 @@
             color: 'green',
             position: 'topcenter',
         });
+    </script>  
+    @endif
+    <script>
+        function editar(id){
+            var uid = id;
+            console.log(uid);
+            Swal.fire({
+                title: 'Editar datos',
+                showCloseButton: true,
+                showConfirmButton: false,
+                html: `
+                <form action="{{route('editar.store')}}" method="POST" class="datos-form rounded-lg m-auto flex flex-col p-5 w-full">
+                    @csrf
+                    @if(session('mensaje'))
+                        <p class="bg-green-500 text-white my-2 font-bold rounded-lg text-sm p-2 text-center">{{ session('mensaje') }}</p>
+                    @endif
+                    <div class="mt-5">
+                        <textarea id="descripcion" name="descripcion" type="text" placeholder="Descripcion del lugar" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('descripcion') border-red-500 @enderror" value={{ old('descripcion') }}></textarea>
+                        @error('descripcion')
+                            <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="mt-5">
+                        <input id="descuento" name="descuento" type="number" placeholder="Descuento de pasaje" class="focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200 border p-3 w-full rounded-lg @error('descuento') border-red-500 @enderror" value={{ old('descuento') }}>
+                        @error('descuento')
+                            <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <input type="hidden" name="id" value="${uid}">
+                    <div class="flex justify-around">
+                        <input type="submit" value="Guardar Cambios" class="bg-blue-500 mt-10 p-3 rounded-lg font-bold cursor-pointer text-white w-1/2">
+                    </div>
+                </form>
+                `,
+            });
+        }
     </script>
-@endif
-
 </body>
 </html>

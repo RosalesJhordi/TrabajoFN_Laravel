@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\Http;
 //eliminar
 Route::get('/delete/{id}',[AgregarController::class,'delete'])->name('eliminar');
 
+//editar
+
+Route::post('/editar',[AgregarController::class,'editar'])->name('editar.store');
+
 //subir img a servidor
 Route::post('/image',function(Request $request){
     

@@ -107,37 +107,38 @@
             Swal.fire({
                 title: 'Seleciona tu asiento',
                 showCloseButton: true,
+                showConfirmButton: false,
                 html: `
-                <div class="asientos">
+                <div class="asientos text-2xl">
                     <div class="w-full flex justify-center items-center">
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">1</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">2</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">3</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">4</P> 
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">1</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">2</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">3</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">4</P> 
                     </div>
                     <div class="w-full flex justify-center items-center">
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">5</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">6</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">7</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">8</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">5</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">6</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">7</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">8</P>
                     </div>
                     <div class="w-full flex justify-center items-center">
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">9</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">10</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">11</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">12</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">9</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">10</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">11</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">12</P>
                     </div>
                     <div class="w-full flex justify-center items-center">
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">13</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">14</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">15</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">16</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">13</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">14</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">15</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">16</P>
                     </div>
                     <div class="w-full flex justify-center items-center">
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">17</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">18</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">19</P>
-                        <P class="p-2 m-5 w-10 h-10 text-center text-white font-bold cursor-pointer bg-green-500">20</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">17</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">18</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">19</P>
+                        <P class="p-2 m-5 w-14 cursor-pointer flex justify-center items-center h-14 text-center text-white font-bold cursor-pointer bg-green-500">20</P>
                     </div>
                 </div>
                 `,

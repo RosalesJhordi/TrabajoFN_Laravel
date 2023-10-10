@@ -43,7 +43,22 @@ class AgregarController extends Controller
         $url = env("URL_SERVER_API",'http://127.0.0.1');
         $response = Http::delete($url.'/Servicios/'.$id);
         $us = $response->json();
-        dd($us);
-        // return back()->with('success', 'Lugar eliminado correctamente'); 
+        return back()->with('success', $us['message']); 
+    }
+    public function editar(Request $request){
+
+        $this->validate($request,[
+            'descripcion' => 'required',
+            'descuento' => 'required'
+        ]);
+        $id = $request->input('id');;
+        $url = env("URL_SERVER_API", 'http://127.0.0.1');
+        $response = Http::put($url . '/Servicios/'. $id, [
+            'descripcion' => $request->descripcion,
+            'descuento' => $request->descuento
+        ]);
+
+        $edit = $response->json();
+        return back()->with('mensaje', $edit['message']); 
     }
 }
