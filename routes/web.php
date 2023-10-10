@@ -20,6 +20,23 @@ use App\Mail\CodigoEmail;
 
 
 use Illuminate\Support\Facades\Http;
+
+//subir img a servidor
+Route::post('/image',function(Request $request){
+    
+     $imagen = $request->file('file');
+
+     $nomImage = Str::uuid() . "." . $imagen->extension();
+     $imgServe = Image::make($imagen);
+     $imgServe->fit(2000,2000);
+
+    $imgPath = public_path('Uploads') . '/' . $nomImage;
+    $imgServe->save($imgPath);
+
+    return response()->json(['imagen'=>$nomImage]);
+
+})->name('image.store');
+
 //agregar lugares
 Route::get('/agregar-lugar',[AgregarController::class,'index'])->name('agregar.index');
 Route::post('/agregar-lugar',[AgregarController::class,'store'])->name('agregar.store');
@@ -55,22 +72,7 @@ Route::post('/delete',function(Request $request){ $id = $request->input('id'); L
 
     
 
-    //subir img a servidor
-Route::post('/image',function(Request $request){
     
-     $imagen = $request->file('file');
-
-     $nomImage = Str::uuid() . "." . $imagen->extension();
-     $imgServe = Image::make($imagen);
-     $imgServe->fit(2000,2000);
-
-    $imgPath = public_path('Uploads') . '/' . $nomImage;
-    $imgServe->save($imgPath);
-
-    return response()->json(['imagen'=>$nomImage]);
-
-})->name('image.store');
-
 //Inicio
 
 Route::get('/',function(){
