@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Http;
 //Boletos
 
 Route::get('/Boletos',[BoletosController::class,'index'])->name('Boletos');
+Route::post('/Boletos',[BoletosController::class,'store'])->name('Boletos.store');
 //eliminar
 Route::get('/delete/{id}',[AgregarController::class,'delete'])->name('eliminar');
 

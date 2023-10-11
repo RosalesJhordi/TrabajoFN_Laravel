@@ -33,7 +33,7 @@ class LoginController extends Controller
             'email' => $request->input('email'),
             'password' => $request->input('password'),
         ]);
-
+        
         if ($response->successful()) {
             $data = $response->json();
             $accessToken = $data['access_token'];
@@ -46,11 +46,7 @@ class LoginController extends Controller
                 'destinos' => $destinos
             ]);
         } else {
-            if ($response->status() === 401) {
-                return back()->withErrors(['message' => 'Credenciales incorrectas']);
-            } else {
-                return back()->withErrors(['message' => 'Error en la autenticación']);
-            }
+            return back()->with(['message' => 'Credenciales incorrectas']);
         }
     }
 }

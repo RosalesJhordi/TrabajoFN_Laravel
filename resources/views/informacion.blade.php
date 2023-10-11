@@ -49,44 +49,13 @@
                             </h2>
                         </div>
                     </div>
-                    <form action="" method="POST" class="w-full flex justify-center">
-                       <button type="submit" onclick="pagar()" class="p-3 bg-blue-700 text-white rounded-lg cursor-pointer hover:bg-blue-600 m-auto">
-                            adquirir paquete
-                        </button> 
+                    <form action="{{route('Boletos.store',['user' => $user['id'],'lugar' => $lugar['id']])}}" method="POST" class="w-full flex justify-center">
+                        @csrf
+                       <input type="submit" value="adquirir paquete" class="p-3 bg-blue-700 text-white rounded-lg cursor-pointer hover:bg-blue-600 m-auto">
                     </form>
                     
                 </div>
             </div>
         </div>
-        <script>
-            function pagar(){
-                let timerInterval
-                Swal.fire({
-                title: 'Generando Codigo De Pago',
-                html: 'Completar en <b></b> milisengundos.',
-                timer: 2000,
-                timerProgressBar: true,
-                didOpen: () => {
-                    Swal.showLoading()
-                    const b = Swal.getHtmlContainer().querySelector('b')
-                    timerInterval = setInterval(() => {
-                    b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                },
-                willClose: () => {
-                    clearInterval(timerInterval)
-                }
-                }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    Swal.fire(
-                    'Paquete Adquirido',
-                    'Puedes revisar tus pquetes y mas en la seccion de Boletos',
-                    'success'
-                    );
-                }
-                })
-            }
-        </script>
     </body>
     </html>

@@ -19,10 +19,10 @@
     <h1 class="text-center text-4xl font-semibold mt-10">Realiza tu reservacion ya!</h1>
     <div class="m-auto lugares">
         <H1 class="ml-10 mt-10 text-2xl">Lugares</H1>
-        <div class="flex justify-between items-center">
+        <div class="flex w-full  flex-wrap items-center mt-5">
             @foreach ($destinos as $lugar)
-                <section class="w-1/3 h-96 bg-white rounded-lg shadow-xl m-5 flex justify-center">
-                    <div class="w-full h-80">
+                <section style="width: 30%; height: 50vh;" class="m-auto my-5  rounded-lg shadow-xl flex justify-center">
+                    <div class="w-full" style="height: 43vh;">
                         <h1 class="absolute font-bold text-xl bg-orange-500 p-2 bord precio text-center">
                             <span class="text-white">
                                 {{$lugar['nombre']}}
