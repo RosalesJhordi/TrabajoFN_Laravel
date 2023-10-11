@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\User;
-use App\Models\Lugares;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -9,18 +7,16 @@ use Intervention\Image\Facades\Image;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\BoletosController;
 use App\Http\Controllers\AgregarController;
-use App\Http\Controllers\OpcionesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReservarController;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\CodigoEmail;
-
 
 use Illuminate\Support\Facades\Http;
+//Boletos
 
+Route::get('/Boletos',[BoletosController::class,'index'])->name('Boletos');
 //eliminar
 Route::get('/delete/{id}',[AgregarController::class,'delete'])->name('eliminar');
 
@@ -59,13 +55,7 @@ Route::post('/login',[LoginController::class,'store'])->name('login.store');
 
 //Ruta reservaciones
 
-Route::get('/reservas', function () { 
-
-    $destinos = Lugares::all();
-    $user = auth()->user();
-    return view('navs.Reservas', ['destinos' => $destinos, 'user' => $user]);
-
-})->name('reservas');
+Route::get('/reservas', [ReservarController::class,'index'])->name('reservas');
 
 Route::post('/{nombre}',[ReservarController::class,'store'])->name('reservar');
 
@@ -74,11 +64,6 @@ Route::post('/{nombre}',[ReservarController::class,'store'])->name('reservar');
     //redirecionar
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
 
-    
-
-    
-
-    
 //Inicio
 
 Route::get('/',function(){
@@ -88,10 +73,16 @@ Route::get('/',function(){
     $destinos = $response->json();
     return view('Inicio',compact('destinos')); 
 });
-Route::get('/inicio',function(){ $destinos = Lugares::all(); $user = auth()->user(); return view('navs.Inicio',['destinos' => $destinos, 'user' => $user]); })->name('inicio');
 
+Route::get('/inicio',function(Request $request){ 
 
+    $url = env("URL_SERVER_API",'http://127.0.0.1');
+    $response = Http::get($url. '/Servicios');
+    $destinos = $response->json();
+    $user = $request->input('user');
+    return view('navs.Inicio',['destinos' => $destinos, 'user' => $user]); 
 
+})->name('inicio');
 
 //logout
 Route::get('logout',[LogoutController::class,'index'])->name('logout');

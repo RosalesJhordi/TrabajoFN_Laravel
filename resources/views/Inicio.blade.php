@@ -29,7 +29,7 @@
         <div class="w-full h-auto">
             <div class="flex flex-wrap justify-between items-center cursor-pointer lugares">
                 @foreach ($destinos as $lugar)
-                <section class="sections">
+                <section class="sections m-5">
                     <div class="text-center image">
                         <h1 class="absolute font-bold text-xl bg-white p-2 bord precio text-start">
                             <span class="text-green-500">

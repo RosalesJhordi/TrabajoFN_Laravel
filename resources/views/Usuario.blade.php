@@ -18,16 +18,19 @@
 </head>
 <body>
     <header class="flex justify-between items-center p-2 shadow-2xl bg-white w-full z-50">
-        <div class="text-2xl w-60 flex justify-around items-center text-black">
-            <a href="{{route('inicio')}}">
-                <i class="cursor-pointer fa-solid fa-house hover:scale-125 hover:text-blue-600"></i>
+        <div class="text-2xl w-96 flex justify-around items-center text-black">
+            <a href="{{route('inicio',['user' => $user])}}" class="font-semibold hover:text-blue-700">
+                Inicio
+                <i class="text-xl cursor-pointer fa-solid fa-house hover:-rotate-45 transition-transform ease-in-out"></i>
             </a>
-            <a href="{{route('reservas')}}">
-                <i class="cursor-pointer fa-solid fa-plane hover:-rotate-90 transition-transform ease-in-out hover:text-blue-600"></i>
+            <a href="{{route('reservas',['data' => $user])}}" class="font-semibold hover:text-blue-600">
+                Tours
+                <i class="text-xl fa-solid fa-person-hiking hover:-rotate-45 transition-transform ease-in-out"></i>
             </a>
-            <i class="cursor-pointer fa-solid fa-earth-africa hover:-rotate-180 transition-transform ease-in-out hover:text-blue-600"></i>
-            <i class="cursor-pointer fa-solid fa-star hover:scale-125 hover:text-blue-600"></i>
-            <i class="cursor-pointer fa-solid fa-clipboard-check hover:-rotate-45 transition-transform ease-in-out hover:text-blue-600"></i>
+            <a href="{{route('Boletos',['user' => $user])}}" class="font-semibold hover:text-blue-600">
+                Boletos
+                <i class="text-xl cursor-pointer fa-solid fa-clipboard-check hover:-rotate-45 transition-transform ease-in-out"></i>
+            </a>
         </div>
         <div>
             @if ($user['email'] == "Rosales@gmail.com")
@@ -54,7 +57,7 @@
             @endif
         </div>
     </header>
-        <div class="w-full bg-gray-100 h-auto">
+        <div class="w-full h-auto">
             @yield('contenido')
         </div>
         <footer class="w-full text-center p-5 flex text-xl text-gray-500 bg-gray-300 justify-center items-center">
@@ -88,6 +91,7 @@
             Swal.fire({
                 position: 'top-right',
                 showCloseButton: true,
+                showConfirmButton: false,
                 html: `
                 <div class="w-full m-auto h-96 flex flex-col justify-center mb-2">
                     <div class="w-full flex justify-center items-end">
